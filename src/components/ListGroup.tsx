@@ -7,17 +7,19 @@ function ListGroup() {
     "Mobile Application Development",
   ];
 
-  subjects = [];
-
-  const message = subjects.length === 0 ? <p>No items found</p> : null;
-
   return (
     <div>
       <h1>Notes</h1>
-      {message}
+      {subjects.length === 0 && <p>No items found</p>}
       <ul className="list-group">
-        {subjects.map((item) => (
-          <li key={item}>{item}</li>
+        {subjects.map((item, index) => (
+          <li
+            className="list-group-item"
+            key={item}
+            onClick={() => console.log(item, index)}
+          >
+            {item}
+          </li>
         ))}
       </ul>
     </div>
